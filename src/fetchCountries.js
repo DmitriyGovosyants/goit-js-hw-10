@@ -3,5 +3,5 @@ const option = '?fields=name,capital,population,flags,languages';
     
 export function fetchCountries(name) {
     return fetch(`${BASE_URL}name/${name}${option}`)
-        .then(resolve => resolve.json())
+        .then(response => response.json())
 }
