@@ -16,6 +16,10 @@ function onCountrySearch(e) {
     refs.countryList.innerHTML = '';
     refs.countryInfo.innerHTML = '';
 
+    if (!searchQuery) {
+        return;
+    }
+
     fetchCountries(searchQuery)
         .then(renderAmountCountriesOptions)
         .catch(onFetchError)
