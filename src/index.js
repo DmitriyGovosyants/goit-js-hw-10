@@ -13,9 +13,9 @@ refs.inputSearch.addEventListener('input', debounce(onCountrySearch, DEBOUNCE_DE
 
 function onCountrySearch(e) {
     const searchQuery = e.target.value.trim();
-    refs.countryList.innerHTML = '';
-    refs.countryInfo.innerHTML = '';
-
+    
+    clearCountriesMarkup();
+    
     if (!searchQuery) {
         return;
     }
@@ -23,6 +23,11 @@ function onCountrySearch(e) {
     fetchCountries(searchQuery)
         .then(renderAmountCountriesOptions)
         .catch(onFetchError)
+}
+
+function clearCountriesMarkup() {
+    refs.countryList.innerHTML = '';
+    refs.countryInfo.innerHTML = '';
 }
 
 function renderAmountCountriesOptions(data) {
