@@ -21,7 +21,7 @@ function onCountrySearch(e) {
     }
 
     fetchCountries(searchQuery)
-        .then(renderAmountCountriesOptions)
+        .then(renderCountries)
         .catch(onFetchError)
 }
 
@@ -30,7 +30,7 @@ function clearCountriesMarkup() {
     refs.countryInfo.innerHTML = '';
 }
 
-function renderAmountCountriesOptions(data) {
+function renderCountries(data) {
     if (data.length > MAX_COUNTRIES_VIEW) {
         return tooManyMatches();
     }
